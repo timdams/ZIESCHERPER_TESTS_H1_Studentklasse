@@ -19,7 +19,7 @@
 
   <ItemGroup>
     <Reference Include="OOPClassBasicsTesterLibrary">
-      <HintPath>..\..\..\Dropbox\PROGPROJECTS\01_Werk\OOPClassTester\OOPClassBasicsTesterLibrary\bin\Debug\net5.0\OOPClassBasicsTesterLibrary.dll</HintPath>
+      <HintPath>OOPClassBasicsTesterLibrary.dll</HintPath>
     </Reference>
   </ItemGroup>
 
