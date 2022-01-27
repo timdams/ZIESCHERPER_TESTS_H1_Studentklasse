@@ -39,10 +39,30 @@ namespace StudentKlasseTests
         [TestMethod]
         public void TestGeefOverzicht()
         {
+            
             if (tester.CheckMethod("GeefOverzicht", typeof(void)))
             {
-                tester.TestMethod("GeefOverzicht", null, null);
-                Assert.Fail("Methode GeefOverzicht bestaat en heeft juiste signature. Ik kan helaas (nog) niet controleren wat je op het scherm print, dus deze test zal daarom falen. ");
+               
+                int pc = 12;
+                int pp = 15;
+                int wt = 13;
+                string naam = "Joske Vermeulen";
+                int leeftijd = 21;
+                tester.SetProp("Naam", naam);
+                tester.SetProp("Klas", Studentenklasse.Klassen.TI1);
+                tester.SetProp("Leeftijd", 21);
+                tester.SetProp("PuntenCommunicatie", pc);
+                tester.SetProp("PuntenProgrammingPrinciples", pp);
+                tester.SetProp("PuntenWebTech", wt);
+                string result = tester.TestMethod("GeefOverzicht", null, null);
+                Assert.IsTrue(result.Contains(Studentenklasse.Klassen.TI1.ToString()), "GeefOverzicht toont de klas niet op het scherm");
+                Assert.IsTrue(result.Contains(leeftijd.ToString()) && result.Contains("jaar"), "GeefOverzicht toont de leeftijd niet op het scherm");
+                Assert.IsTrue(result.Contains(naam), "GeefOverzicht toont de naam niet op het scherm");
+                Assert.IsTrue(result.Contains(pc.ToString()), "GeefOverzicht toont de punten van Communicatie niet op het scherm");
+                Assert.IsTrue(result.Contains(pp.ToString()), "GeefOverzicht toont de punten van Programming Principles niet op het scherm");
+                Assert.IsTrue(result.Contains(wt.ToString()), "GeefOverzicht toont de punten van WebTechnology niet op het scherm");
+                Assert.IsTrue(result.Contains(((pc + pp + wt) / 3.0).ToString()), "GeefOverzicht toont het gemiddelde niet op het scherm");
+                //  tester.TestMethod("BerekenTotaalCijfer", null, (pc + pp + wt) / 3.0, $"Punten werden op {pc},{pp} en {wt} gezet.");
             }
         }
     }
