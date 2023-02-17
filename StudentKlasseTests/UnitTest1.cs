@@ -20,9 +20,9 @@ namespace StudentKlasseTests
         }
 
         [TestMethod]
-        public void TestBerekenTotaalCijfer()
+        public void TestBerekenGemiddelde()
         {
-            if (tester.CheckMethod("BerekenTotaalCijfer", typeof(double)))
+            if (tester.CheckMethod("BerekenGemiddelde", typeof(double)))
             {
                 int pc = 12;
                 int pp = 14;
@@ -31,7 +31,7 @@ namespace StudentKlasseTests
                 tester.SetProp("PuntenCommunicatie", pc);
                 tester.SetProp("PuntenProgrammingPrinciples", pp);
                 tester.SetProp("PuntenWebTech", wt);
-                tester.TestMethod("BerekenTotaalCijfer", null, (pc + pp + wt) / 3.0, $"Punten werden op {pc},{pp} en {wt} gezet.");
+                tester.TestMethod("BerekenGemiddelde", null, (pc + pp + wt) / 3.0, $"Punten werden op {pc},{pp} en {wt} gezet.");
             }
         }
 
@@ -62,7 +62,7 @@ namespace StudentKlasseTests
                 Assert.IsTrue(result.Contains(pp.ToString()), "GeefOverzicht toont de punten van Programming Principles niet op het scherm");
                 Assert.IsTrue(result.Contains(wt.ToString()), "GeefOverzicht toont de punten van WebTechnology niet op het scherm");
                 Assert.IsTrue(result.Contains(((pc + pp + wt) / 3.0).ToString()), "GeefOverzicht toont het gemiddelde niet op het scherm");
-                //  tester.TestMethod("BerekenTotaalCijfer", null, (pc + pp + wt) / 3.0, $"Punten werden op {pc},{pp} en {wt} gezet.");
+                //  tester.TestMethod("BerekenGemiddelde", null, (pc + pp + wt) / 3.0, $"Punten werden op {pc},{pp} en {wt} gezet.");
             }
         }
     }
